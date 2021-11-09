@@ -1,0 +1,17 @@
+.topnav-wrapper {
+  width: 100vw;
+  height: 150px;
+
+  position: absolute; /* stay at the top */
+
+  border-top: 2px solid salmon;
+  border-bottom: 2px solid salmon;
+
+  display: grid;
+  grid-template-columns: 200px auto 200px;
+  grid-template-rows: 100%;
+}
+
+.topnav-wrapper > * {
+  border: 2px solid paleturquoise;
+}

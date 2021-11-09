@@ -1,0 +1,13 @@
+.refresh-button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.refresh-button-wrapper svg {
+  height: 128px;
+}
+
+.refresh-button-wrapper svg:hover {
+  cursor: pointer;
+}
