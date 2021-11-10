@@ -2,9 +2,6 @@
   width: 100vw;
   height: 150px;
 
-  position: absolute; /* stay at the bottom */
-  bottom: 0;
-
   border-top: 2px solid salmon;
   border-bottom: 2px solid salmon;
 
@@ -12,7 +9,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 100%;
 }
-
+/* 
 .main-buttons-wrapper > * {
   border: 2px solid paleturquoise;
-}
+} */
