@@ -1,0 +1,7 @@
+.board-wrapper {
+  width: 100vw;
+  height: calc(100vh - 308px);
+  padding-top: 154px;
+
+  border: 2px solid thistle;
+}
