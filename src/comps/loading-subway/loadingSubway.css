@@ -1,0 +1,39 @@
+#subway {
+  width: 50%;
+  height: 50%;
+}
+
+#Group-1 {
+  animation: bumpingAlong 2s ease-in-out 0s infinite;
+}
+
+#Group-2 {
+  animation: bumpingAlong 2s ease-in-out 0.25s infinite;
+}
+
+#Group-3 {
+  animation: bumpingAlong 2s ease-in-out 0.5s infinite;
+}
+
+.subway-wrapper .loading-text {
+  color: white;
+  font-size: 48px;
+}
+
+@keyframes bumpingAlong {
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translateY(-8%);
+  }
+  50% {
+    transform: translateY(4%);
+  }
+  80% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}

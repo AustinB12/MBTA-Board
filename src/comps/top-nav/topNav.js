@@ -4,10 +4,13 @@ import InsurifyLogo from "../../assets/Insurify_Logo.png";
 
 import "./topNav.css";
 
-const TopNav = () => {
+const TopNav = (props) => {
   return (
     <div className="topnav-wrapper">
-      <RefreshButton></RefreshButton>
+      <RefreshButton
+        setGetData={props.setGetData}
+        getData={props.getData}
+      ></RefreshButton>
       <div className="title-holder">
         <h1>MBTA Departure Board</h1>
       </div>
