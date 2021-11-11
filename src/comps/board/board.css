@@ -120,3 +120,7 @@
 .board-wrapper .the-board .board-table .table-header th {
   border-radius: 2px;
 }
+
+.board-wrapper .the-board .board-table .table-header .sortable-th:hover {
+  cursor: pointer;
+}
