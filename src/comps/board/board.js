@@ -17,7 +17,6 @@ const Board = (props) => {
     async function getBoardData() {
       let mbtaUrl = getUrl();
 
-      // console.log("mbtaUrl: ", mbtaUrl);
       const data = await fetch(mbtaUrl)
         .then((response) => response.json())
         .then((data) => setBoardData(data))
@@ -69,6 +68,12 @@ const Board = (props) => {
   };
 
   const formatTime = (hours, mins) => {
+    console.log("hours: ", hours);
+    console.log("mins: ", mins);
+    if (hours === undefined || mins === undefined) {
+      return "--";
+    }
+
     let amPm = "AM";
     if (hours > 12) {
       amPm = "PM";
@@ -89,7 +94,7 @@ const Board = (props) => {
   const getUrl = () => {
     return (
       url +
-      "/predictions?filter[stop]=place-north&filter[route_type]=2&include=stop,trip,schedule"
+      "/predictions?filter[stop]=place-north&filter[route_type]=2&include=stop,trip,schedule,route"
     );
   };
 
@@ -103,9 +108,12 @@ const Board = (props) => {
           </div>
           <div
             className="board-header-center"
-            onClick={() => console.log(boardData)}
+            onClick={() => {
+              console.log(boardData);
+              setBoardIsLoading(!boardIsLoading);
+            }}
           >
-            NORTH STATION INFORMATION
+            NORTH STATION INFORMATION - {props.line || "N/A"}
           </div>
           <div className="board-header-right-side">
             <div>CURRENT TIME</div>
@@ -125,25 +133,45 @@ const Board = (props) => {
                   <th>STATUS</th>
                 </tr>
                 {boardData && boardData.data ? (
-                  boardData.data.map((line) => {
+                  boardData.data.map((lineData) => {
                     return (
                       <tr>
                         <td>MBTA</td>
-                        <td>{line.attributes.arrival_time || "Null"}</td>
-                        <td>{line.relationships.route.data?.id || "Null"}</td>
                         <td>
-                          {line.relationships.trip.data?.id.split("-")[2] ||
+                          {lineData.attributes.departure_time
+                            ? formatTime(
+                                lineData.attributes.departure_time?.substring(
+                                  11,
+                                  13
+                                ),
+                                lineData.attributes.departure_time?.substring(
+                                  14,
+                                  16
+                                )
+                              )
+                            : "--:--"}
+                        </td>
+                        <td>
+                          {lineData.relationships.route.data?.id || "Null"}
+                        </td>
+                        <td>
+                          {lineData.relationships.trip.data?.id.split("-")[2] ||
                             "Null"}
                         </td>
-                        <td>TBD</td>
+                        <td>
+                          {lineData.attributes.platform_code
+                            ? lineData.attributes.platform_code
+                            : "TBD"}
+                        </td>
                         <td
                           className={
-                            line.attributes.status.toUpperCase() === "ON TIME"
+                            lineData.attributes.status.toUpperCase() ===
+                            "ON TIME"
                               ? "status-td-good"
                               : "status-td-bad"
                           }
                         >
-                          {line.attributes.status || "--"}
+                          {lineData.attributes.status || "--"}
                         </td>
                       </tr>
                     );

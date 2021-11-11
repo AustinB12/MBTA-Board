@@ -5,12 +5,13 @@ import Board from "./comps/board/board";
 
 const AppWrapper = () => {
   const [getData, setGetData] = useState(false);
+  const [line, setLine] = useState("");
 
   return (
     <div className="app-wrapper">
       <TopNav setGetData={setGetData} getData={getData}></TopNav>
-      <Board line={"Red"} getData={getData}></Board>
-      <MainButtons></MainButtons>
+      <Board line={line} getData={getData}></Board>
+      <MainButtons line={line} setLine={setLine}></MainButtons>
     </div>
   );
 };

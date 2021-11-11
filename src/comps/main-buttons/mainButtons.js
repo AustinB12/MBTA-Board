@@ -6,20 +6,20 @@ import { ReactComponent as RL } from "../../assets/RedLine.svg";
 
 import "./mainButtons.css";
 
-const MainButtons = () => {
+const MainButtons = ({ line, setLine }) => {
   return (
     <div className="main-buttons-wrapper">
       <div className="line-button-wrapper">
-        <RL></RL>
+        <RL onClick={() => setLine("Red")}></RL>
       </div>
       <div className="line-button-wrapper">
-        <BL></BL>
+        <BL onClick={() => setLine("Blue")}></BL>
       </div>
       <div className="line-button-wrapper">
-        <GL></GL>
+        <GL onClick={() => setLine("Green")}></GL>
       </div>
       <div className="line-button-wrapper">
-        <OL></OL>
+        <OL onClick={() => setLine("Orange")}></OL>
       </div>
     </div>
   );

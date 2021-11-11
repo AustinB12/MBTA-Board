@@ -15,6 +15,10 @@
   animation: bumpingAlong 2s ease-in-out 0.5s infinite;
 }
 
+.subway-wrapper {
+  height: 100%;
+}
+
 .subway-wrapper .loading-text {
   color: white;
   font-size: 48px;
