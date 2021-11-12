@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import LoadingSubway from "../loading-subway/loadingSubway";
-
+import { numberToDayString, formatTime, getTimeClasses } from "./board-helpers";
 import "./board.css";
 
 const Board = (props) => {
@@ -52,62 +52,6 @@ const Board = (props) => {
     setLocalTime(formatTime(date.getHours(), date.getMinutes()));
   }, 1000);
 
-  const numberToDayString = (dayNumber) => {
-    switch (dayNumber) {
-      case 1:
-        return "Monday";
-      case 2:
-        return "Tuesday";
-      case 3:
-        return "Wednesday";
-      case 4:
-        return "Thursday";
-      case 5:
-        return "Friday";
-      case 6:
-        return "Saturday";
-      case 7:
-        return "Sunday";
-      default:
-        return "Sunday";
-    }
-  };
-
-  const formatTime = (hours, mins) => {
-    if (hours === undefined || mins === undefined) {
-      return "--";
-    }
-
-    let amPm = "AM";
-
-    if (hours > 12) {
-      amPm = "PM";
-      hours = hours - 12;
-    }
-    if (hours === 0) {
-      hours = 12;
-    }
-    if (
-      (typeof mins === "number" && mins < 10) ||
-      (typeof mins === "string" && parseInt(mins) < 10 && !mins.startsWith("0"))
-    ) {
-      mins = "0" + mins;
-    }
-
-    return `${hours.toString()}:${mins.toString()} ${amPm}`;
-  };
-
-  const getTimeClasses = (sortingAttribute) => {
-    let me = "sortable-th ";
-    let result =
-      dataFilter === "" ||
-      !dataFilter.endsWith(sortingAttribute) ||
-      (dataFilter.startsWith("-") && dataFilter.endsWith(sortingAttribute))
-        ? "up"
-        : "down";
-    return me + result;
-  };
-
   return (
     <div className="board-wrapper">
       <div className="the-board">
@@ -129,7 +73,7 @@ const Board = (props) => {
                 <tr className="table-header">
                   <th>CARRIER</th>
                   <th
-                    className={getTimeClasses("departure_time")}
+                    className={getTimeClasses("departure_time", dataFilter)}
                     onClick={() => {
                       if (dataFilter === "") {
                         setdataFilter("departure_time");
@@ -149,7 +93,7 @@ const Board = (props) => {
                   <th>TRAIN#</th>
                   <th>TRACK#</th>
                   <th
-                    className={getTimeClasses("status")}
+                    className={getTimeClasses("status", dataFilter)}
                     onClick={() => {
                       if (dataFilter === "") {
                         setdataFilter("status");
