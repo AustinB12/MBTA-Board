@@ -6,20 +6,28 @@
 
 ---
 
-### I hosted the app! 🌐
+### Description
 
-To view it without downloading the code, go to:
+This is a simple application that shows the upcoming subway schedule for the Boston North Station. <br>
+The button in the top left will fetch data from their API again and refresh the board. Here is the API I am using: <br>
+[MBTA V3 API](https://api-v3.mbta.com/docs/swagger/index.html)
+
+### To see the project without cloning the repository...
+
+Go to:
 [https://sharp-lalande-d36f46.netlify.app/](https://sharp-lalande-d36f46.netlify.app/)
 
 I chose to host it with Netlify because their product makes connecting to GitHub and deploying code incredibly easy.
-
-### The Code 👨‍💻
 
 ### How to Run the Code
 
 To start the project, navigate the the base directory: `/MBTA-Baord` and run:
 
-#### `npm start`
+To install all the dependencies: <br>
+`npm install`
+
+To start the project:<br>
+`npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -27,15 +35,10 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-#### `npm test`
+### Testing ✅❌
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To test the project, navigate the the base directory: `/MBTA-Baord` and run:
 
-#### `npm run build`
+`npm test`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This launches the test runner in the interactive watch mode.
