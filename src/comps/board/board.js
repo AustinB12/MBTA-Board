@@ -97,6 +97,17 @@ const Board = (props) => {
     return `${hours.toString()}:${mins.toString()} ${amPm}`;
   };
 
+  const getTimeClasses = (sortingAttribute) => {
+    let me = "sortable-th ";
+    let result =
+      dataFilter === "" ||
+      !dataFilter.endsWith(sortingAttribute) ||
+      (dataFilter.startsWith("-") && dataFilter.endsWith(sortingAttribute))
+        ? "up"
+        : "down";
+    return me + result;
+  };
+
   return (
     <div className="board-wrapper">
       <div className="the-board">
@@ -118,7 +129,7 @@ const Board = (props) => {
                 <tr className="table-header">
                   <th>CARRIER</th>
                   <th
-                    className="sortable-th"
+                    className={getTimeClasses("departure_time")}
                     onClick={() => {
                       if (dataFilter === "") {
                         setdataFilter("departure_time");
@@ -138,7 +149,7 @@ const Board = (props) => {
                   <th>TRAIN#</th>
                   <th>TRACK#</th>
                   <th
-                    className="sortable-th"
+                    className={getTimeClasses("status")}
                     onClick={() => {
                       if (dataFilter === "") {
                         setdataFilter("status");

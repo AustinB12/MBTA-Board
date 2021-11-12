@@ -124,3 +124,23 @@
 .board-wrapper .the-board .board-table .table-header .sortable-th:hover {
   cursor: pointer;
 }
+
+.board-wrapper .the-board .board-table .table-header .sortable-th.down::after {
+  content: "\276E";
+  font-size: 24px;
+  display: inline-block;
+  -ms-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+  padding: 5px;
+}
+
+.board-wrapper .the-board .board-table .table-header .sortable-th.up::after {
+  content: "\276E";
+  font-size: 24px;
+  display: inline-block;
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  padding: 5px;
+}
