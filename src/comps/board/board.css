@@ -13,12 +13,9 @@
   width: 90%;
   height: 90%;
 
-  border-radius: 2px;
+  border-radius: 5px;
 
   background-color: #070705;
-
-  /* border-right: 8px solid #3b3b3b; */
-  border-bottom: 8px solid #3b3b3b;
 
   overflow: auto;
 }

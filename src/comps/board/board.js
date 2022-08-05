@@ -143,7 +143,7 @@ const Board = (props) => {
                         </td>
                         <td
                           className={
-                            lineData.attributes.status.toUpperCase() ===
+                            lineData?.attributes?.status?.toUpperCase() ===
                             "ON TIME"
                               ? "status-td-good"
                               : "status-td-bad"

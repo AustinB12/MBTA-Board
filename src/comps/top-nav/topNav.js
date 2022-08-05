@@ -1,6 +1,6 @@
 import React from "react";
 import RefreshButton from "../refresh-button/refreshButton";
-import InsurifyLogo from "../../assets/Insurify_Logo.png";
+import { ReactComponent as GitHubIcon} from "../../assets/github.svg";
 
 import "./topNav.css";
 
@@ -12,11 +12,11 @@ const TopNav = (props) => {
         getData={props.getData}
       ></RefreshButton>
       <div className="title-holder">
-        <h1>MBTA Departure Board</h1>
+        <h1 className="title">MBTA Departure Board</h1>
       </div>
       <div className="logo-holder">
-        <a href="https://insurify.com/">
-          <img src={InsurifyLogo} alt="The Insurify Logo"></img>
+        <a href="https://github.com/Austinb12" alt="Click to view the source code.">
+          <GitHubIcon />
         </a>
       </div>
     </div>

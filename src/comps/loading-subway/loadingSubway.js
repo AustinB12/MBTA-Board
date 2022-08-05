@@ -150,7 +150,7 @@ const LoadingSubway = () => {
           </g>
         </g>
       </svg>
-      <div className="loading-text">Loading...</div>
+      <div className="loading-text">Loading<span className="period-one">.</span><span className="period-two">.</span><span className="period-three">.</span></div>
     </div>
   );
 };
